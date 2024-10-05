@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Adilene's Housecleaning Estimate</title>
+</head>
+<body>
+
+	<main>
+        <h2>Adilene's House Cleaning Estimate</h2>
+
+        <label for="square-footage">Square Footage:</label>    
+        <input id="square-footage" type="text" placeholder="Enter square footage" min="0">
+
+
+		<label for="pet-info">Do you have any pets?</label>
+		<select id="pet-info">
+            <option value="">Select an option</option>
+            <option value="30">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="cleaning-type">What kind of cleaning would you like? </label>
+        <select id="cleaning-type">
+            <option value="">Select an option</option>
+            <option value="60">Deep Cleaning</option>
+            <option value="40">Light Cleaning</option>
+        </select>
+
+        <button id="calculate-button">Calculate</button>
+		
+		<div id="results"></div>
+	</main>
+	
+    <script>
+        function calculateCleaningCost() {
+            const squareFootage = parseFloat(document.querySelector('#square-footage').value.replace(/,/g, '')) || 0;
+            const petInfoCost = parseInt(document.querySelector('#pet-info').value) || 0; 
+            const cleaningTypeCost = parseInt(document.querySelector('#cleaning-type').value) || 0;
+
+            // Calculate total cost
+            const totalCost = (squareFootage * 0.10) + petInfoCost + cleaningTypeCost;
+
+            document.querySelector('#results').innerHTML = `Estimated Cost: $${totalCost.toFixed(2)}`;
+        }
+
+        document.querySelector('#calculate-button').addEventListener('click', calculateCleaningCost);
+    </script>
+
+    <style>
+        html {
+            background-color: whitesmoke;
+            font-family: monospace;
+            height: 100%
+            
+        }
+
+        body{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            padding: 25px;
+            border: 1px solid black;
+            border-radius: 15px;
+            background-color: rgb(255, 232, 236);
+        }
+
+        input, select {
+            font-family: monospace;
+            font-size: 15px;
+            border: 1px solid black;
+            border-radius: 4px;
+            padding: 8px;
+            width: 300px;
+            
+        }
+    </style>
+	
+</body>
+</html>
+

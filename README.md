@@ -1,2 +1,2 @@
 # custom-calculator
-Custom calculator for Abilene's House Cleaning
+Custom calculator for Adilene's House Cleaning
